@@ -5,6 +5,7 @@ updateText("coverMinus", "coverValue", "coverMoney", 59);
 
 function updateText(id, field, amount, moneyValue) {
   document.getElementById(id).addEventListener("click", () => {
+    
     let number = document.getElementById(field).value;
     let parse = parseInt(number);
     if (id == "plus" || id == "coverPlus") {
@@ -20,6 +21,7 @@ function updateText(id, field, amount, moneyValue) {
       document.getElementById("subTotalAmount").innerText =parseTotal+moneyValue;
     } else {
       let display = parse - 1;
+      if(display>=0){
       document.getElementById(field).value = display;
       let moneyID = document.getElementById(amount).innerText;
       parseMoney = parseInt(moneyID);
@@ -29,7 +31,7 @@ function updateText(id, field, amount, moneyValue) {
       parseTotal =parseInt(subTotal);
       document.getElementById("totalAmount").innerText =parseTotal-moneyValue;
       document.getElementById("subTotalAmount").innerText =parseTotal-moneyValue;
+      }
     }
-    
   });
 }
